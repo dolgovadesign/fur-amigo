@@ -1,0 +1,42 @@
+.name-field {
+    padding: 10px;
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2em;
+    width: 180px;
+}
+
+.name-field:focus {
+    outline: none;
+}
+
+.submit-button {
+    position: relative;
+    margin: 10px auto;
+    display: block;
+    background: none;
+    border: none;
+}
+
+.submit-button:focus {
+    outline: none;
+    border: none;
+}
+
+.submit-button:active {
+    outline: none;
+    border: none;
+}
+
+.submit-button__image {
+    height: 100px;
+}
+
+.submit-button__text {
+    display: block;
+    color: white;
+    position: absolute;
+    top: 70%;
+    right: 32%;
+}

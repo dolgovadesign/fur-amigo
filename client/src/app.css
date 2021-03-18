@@ -1,0 +1,17 @@
+.container {
+    background-color: white;
+    border-radius: 3em;
+    position: absolute;
+    right: 15%;
+    top: 10%;
+    height: 80%;
+    width: 70%;
+    text-align: center;
+}
+
+.close-button__image {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 32px;
+}
