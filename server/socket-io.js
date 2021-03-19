@@ -1,5 +1,7 @@
 const socketIO = require('socket.io');
 
+let openConnection;
+
 module.exports = {
     configure: (server) => {
         let interval;
@@ -9,29 +11,22 @@ module.exports = {
               methods: ["GET", "POST"]
             }
         });
+
+        console.log(`Listening to Socket.IO connections`);
     
         io.on('connection', socket => {
-            console.log(`Client connected`);
-    
-            if (interval) {
-                clearInterval(interval);
-            }
-    
-            interval = setInterval(() => {
-                if (Math.floor(Math.random() * 10) <= 5) {
-                    console.log(`Emitting SingleClap`);
-                    socket.emit('SingleClap', true);
-                }
-                else {
-                    console.log(`Emitting DoubleClap`);
-                    socket.emit('DoubleClap', true);
-                }
-                
-            }, 10000);
-    
+            console.log(`Socket.IO client connected`);
+            openConnection = socket;
+
             socket.on('disconnect', () => {
-                console.log(`Client disconnected`);
+                console.log(`Socket.IO client disconnected`);
+                openConnection = null;
             });
         });
+    },
+    send: data => {
+        if (openConnection) {
+            openConnection.emit(data, true);
+        }
     }
 };

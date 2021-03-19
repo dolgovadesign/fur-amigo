@@ -5,25 +5,29 @@ let arduino;
 let parser;
 
 module.exports = {
-    configure: ({path, baudRate}) => {
+    configure: ({path, baudRate, onDataReceived}) => {
         arduino = new serialport(path, { autoOpen: false, baudRate });
         parser = arduino.pipe(new readline({ delimiter: '\n' }));
 
+        parser.on('data', data => {
+            console.log(`FurAmigo sends: ${data}`);
+            onDataReceived && onDataReceived(data);
+        });
+
         arduino.open(error => {
             if (error || !arduino.isOpen) {
-                console.error(`Failed to establish serial connection`, error);
+                console.error(`Failed to establish bluetooth connection`, error);
                 return;
             }
 
-            console.log(`Serial connection established`);
+            console.log(`Bluetooth connection established`);
         });
     },
-    send: (data, callback) => {
-        arduino.write(data, callback);
-    },
-    receive: (callback) => {
-        parser.on('data', data => {
-            callback(data);
+    send: (data) => {
+        arduino.write(data, error => {
+            if (error) {
+                console.error(`Failed to send {data} via bluetooth`);
+            }
         });
     }
 };
