@@ -1,10 +1,9 @@
 const socketIO = require('socket.io');
 
-let openConnection;
+let openSocket;
 
 module.exports = {
     configure: (server) => {
-        let interval;
         const io = socketIO(server, {
             cors: {
               origin: "http://localhost:3000",
@@ -16,17 +15,19 @@ module.exports = {
     
         io.on('connection', socket => {
             console.log(`Socket.IO client connected`);
-            openConnection = socket;
+            openSocket = socket;
+
+            socket.emit(`Test`, true);
 
             socket.on('disconnect', () => {
                 console.log(`Socket.IO client disconnected`);
-                openConnection = null;
+                openSocket = null;
             });
         });
     },
     send: data => {
-        if (openConnection) {
-            openConnection.emit(data, true);
+        if (openSocket) {
+            openSocket.emit('FurAmigo', data);
         }
     }
 };

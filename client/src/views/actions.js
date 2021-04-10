@@ -1,39 +1,20 @@
-import axios from 'axios';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './actions.css';
 import logo from '../assets/images/logo4.png';
-
-const actionUrl = 'http://localhost:4000';
+import Service from '../services/fur-amigo-service';
 
 export default function Actions({name}) {
-    const history = useHistory();
+    const [playing, setPlaying] = useState(false);
 
-    function onEarsUp() {
-        axios.post(`${actionUrl}/earsup`);
-    }
-
-    function onEarsDown() {
-        axios.post(`${actionUrl}/earsdown`);
-    }
-
-    function onEarsFlapping() {
-        axios.post(`${actionUrl}/earsflapping`);
-    }
-
-    function onShakeLeftPaw() {
-        axios.post(`${actionUrl}/shakeleftpaw`);
-    }
-
-    function onShakeRightPaw() {
-        axios.post(`${actionUrl}/shakerightpaw`);
-    }
-
-    function onReset() {
-        axios.post(`${actionUrl}/reset`);
-    }
-
-    function onBark() {
-        history.push('/breeds');
+    function togglePlayer() {
+        if (playing) {
+            Service.stopPlayer();
+            setPlaying(false);
+        } else {
+            Service.startPlayer();
+            setPlaying(true);
+        }
     }
 
     return (
@@ -42,14 +23,16 @@ export default function Actions({name}) {
             <img className="logo" src={logo} alt="Attentive FurAmigo" />
             <p className="instruction">Let's try to move me</p>
             <div className="action-container">
-                <button className="action-button" onClick={() => onEarsUp()}>Ears Up</button>
-                <button className="action-button" onClick={() => onEarsDown()}>Ears Down</button>
-                <button className="action-button" onClick={() => onEarsFlapping()}>Ears Flapping</button>
-                <button className="action-button" onClick={() => onShakeLeftPaw()}>Shake Left Paw</button>
-                <button className="action-button" onClick={() => onShakeRightPaw()}>Shake Right Paw</button>
-                <button className="action-button" onClick={() => onReset()}>Reset</button>
+                <button className="action-button" onClick={() => Service.raiseEars()}>Ears Up</button>
+                <button className="action-button" onClick={() => Service.lowerEars()}>Ears Down</button>
+                <button className="action-button" onClick={() => Service.flapEars()}>Ears Flapping</button>
+                <button className="action-button" onClick={() => Service.shakeLeftPaw()}>Shake Left Paw</button>
+                <button className="action-button" onClick={() => Service.shakeRightPaw()}>Shake Right Paw</button>
+                <button className="action-button" onClick={() => togglePlayer()}>Toggle Player</button>
+                <button className="action-button" onClick={() => Service.playNext()}>Next Track</button>
+                <button className="action-button" onClick={() => Service.reset()}>Reset</button>
             </div>
-            <button onClick={() => onBark()}>Bark</button>
+            <button>Bark</button>
         </>
     );
 }

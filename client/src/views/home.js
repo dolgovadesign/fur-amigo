@@ -11,7 +11,7 @@ export default function Home({onNameChanged}) {
     function onSubmit(history, name) {
         if (name) {
             onNameChanged(name);
-            history.push(`/actions`);
+            history.push(`/setup_1`);
         } else {
             alert(`Please enter your name in the provided field`);
         }

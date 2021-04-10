@@ -32,7 +32,7 @@ socketio.configure(server);
  */
 const path = '/dev/tty.UNO-DevB';
 const baudRate = 19200;
-arduino.configure({ path, baudRate });
+arduino.configure({ path, baudRate, onDataReceived: socketio.send });
 
 /**
  * Listen on provided port, on all network interfaces.

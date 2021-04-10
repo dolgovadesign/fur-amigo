@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import socketIOClient from 'socket.io-client';
+import { io } from 'socket.io-client';
 import './single-clap.css';
 import logo from '../assets/images/logo2.png';
 import clapLogo from '../assets/images/single-clap.png';
@@ -10,8 +10,15 @@ export default function SingleClap({name}) {
     const endpoint = 'http://localhost:4000';
 
     useEffect(() => {
-        const socket = socketIOClient(endpoint);
-        socket.on('SingleClap', () => history.push('/setup_2'));
+        const socket = io(endpoint);
+
+        socket.on('FurAmigo', message => {
+            if (message.trim() === 'Single Clap') {
+                history.push('/setup_2');
+            } else {
+                console.log(`Unrecognized message from FurAmigo: '${message}'`);
+            }
+        });
     
         return () => socket.disconnect();
       }, [history]);

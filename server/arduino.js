@@ -24,10 +24,12 @@ module.exports = {
         });
     },
     send: (data) => {
-        arduino.write(data, error => {
+        var buffer = Buffer.from(data, 'ascii');
+        arduino.write(buffer, error => {
             if (error) {
                 console.error(`Failed to send {data} via bluetooth`);
             }
         });
+        arduino.flush();
     }
 };

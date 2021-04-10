@@ -14,37 +14,55 @@ router.get('/', function(req, res, next) {
 
 router.post('/reset', (req, res) => {
   console.log(`Reset requested`);
-  sendCommand('reset');
+  sendCommand('0');
   res.send('OK').status(200);
 });
 
-router.post('/earsup', (req, res) => {
-  console.log(`Ears Up requested`);
-  sendCommand('raiseears');
+router.post('/raiseears', (req, res) => {
+  console.log(`Raise Ears requested`);
+  sendCommand('1');
   res.send('OK').status(200);
 });
 
-router.post('/earsdown', (req, res) => {
-  console.log(`Ears Down requested`);
-  sendCommand('lowerears');
+router.post('/lowerears', (req, res) => {
+  console.log(`Lower Ears requested`);
+  sendCommand('2');
   res.send('OK').status(200);
 });
 
-router.post('/earsflapping', (req, res) => {
-  console.log(`Ears Flapping requested`);
-  sendCommand('flapears');
+router.post('/flapears', (req, res) => {
+  console.log(`Flap Ears requested`);
+  sendCommand('3');
   res.send('OK').status(200);
 });
 
 router.post('/shakeleftpaw', (req, res) => {
   console.log(`Shake Left Paw requested`);
-  sendCommand('shakeleftpaw');
+  sendCommand('4');
   res.send('OK').status(200);
 });
 
 router.post('/shakerightpaw', (req, res) => {
   console.log(`Shake Right Paw requested`);
-  sendCommand('shakerightpaw');
+  sendCommand('5');
+  res.send('OK').status(200);
+});
+
+router.post('/playstart', (req, res) => {
+  console.log(`Start player requested`);
+  sendCommand('6');
+  res.send('OK').status(200);
+});
+
+router.post('/playstop', (req, res) => {
+  console.log(`Stop player requested`);
+  sendCommand('7');
+  res.send('OK').status(200);
+});
+
+router.post('/playnext', (req, res) => {
+  console.log(`Next track requested`);
+  sendCommand('8');
   res.send('OK').status(200);
 });
 
