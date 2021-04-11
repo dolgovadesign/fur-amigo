@@ -1,6 +1,7 @@
-/* .action-container {
+.action-container {
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    align-content: stretch;
-} */
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
