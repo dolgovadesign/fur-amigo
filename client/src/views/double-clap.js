@@ -4,6 +4,7 @@ import { io } from 'socket.io-client';
 import logo from '../assets/images/logo3.png';
 import clapLogo from '../assets/images/double-clap.png';
 import Service from '../services/fur-amigo-service';
+import './double-clap.css';
 
 export default function DoubleClap({name}) {
     const history = useHistory();
@@ -44,14 +45,11 @@ export default function DoubleClap({name}) {
             <img className="logo" src={logo} alt="Howling FurAmigo" />
             <p className="instruction">{ retry ? retryInstruction1 : initialInstruction1}</p>
             <p className="instruction instruction-command">{ retry ? retryInstruction2 : initialInstruction2 }</p>
-            <img className="clap-logo" src={clapLogo} alt="Two sets of clapping hands" />
-            {
-                doubleClapDetected &&
-                <div>
-                    <button onClick={() => onContinue()}>Yes</button>
-                    <button onClick={() => onRetry()}>No</button>
-                </div>
-            }
+            <div className="retry-container">
+                { doubleClapDetected && <a className="retry-link-yes" onClick={() => onContinue()}>Yes</a> }
+                <img className="clap-logo" src={clapLogo} alt="Two sets of clapping hands" />
+                { doubleClapDetected && <a className="retry-link-no" onClick={() => onRetry()}>No</a> }
+            </div>
         </>
     );
 }

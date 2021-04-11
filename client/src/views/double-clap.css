@@ -1,0 +1,25 @@
+.retry-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retry-link-yes {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: green;
+    margin-right: 20px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.retry-link-no {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+    margin-left: 20px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
