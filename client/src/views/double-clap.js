@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { io } from 'socket.io-client';
 import './double-clap.css';
 import logo from '../assets/images/logo3.png';
 import clapLogo from '../assets/images/double-clap.png';
