@@ -5,3 +5,7 @@
 .audio-button {
     margin: 30px 0;
 }
+
+.audio-button--pressed {
+    opacity: 0.5;
+}

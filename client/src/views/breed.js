@@ -13,6 +13,7 @@ import Service from '../services/fur-amigo-service';
 export default function BreedView() {
     const { id } = useParams();
     const history = useHistory();
+    const [buttonPressed, setButtonPressed] = useState(false);
     const [playerActive, setPlayerActive] = useState(false);
     const breedId = parseInt(id, 10);
     const currentBreed = DogBreeds[breedId - 1];
@@ -23,8 +24,10 @@ export default function BreedView() {
         const dispose = Service.onMessageReceived(message => {
             if (message.startsWith(`Playing track`)) {
                 setPlayerActive(true);
+                setButtonPressed(false);
             } else if (message.startsWith('Stopping track')) {
                 setPlayerActive(false);
+                setButtonPressed(false);
             } else {
                 console.log(`Unrecognized message from FurAmigo: '${message}'`);
             }
@@ -34,10 +37,20 @@ export default function BreedView() {
       }, [history]);
 
     function playTrack() {
+        if (buttonPressed) {
+            return;
+        }
+        
+        setButtonPressed(true);
         Service.playTrack(currentBreed.track);
     }
 
     function stopTrack() {
+        if (buttonPressed) {
+            return;
+        }
+        
+        setButtonPressed(true);
         Service.stopPlayer();
     }
 
@@ -49,8 +62,8 @@ export default function BreedView() {
             <img className="arrow-button" src={rightButton} onClick={() => history.push(`/breed/${nextBreedId}`)} />
         </div>
         <AudioBar className="audio-bar" active={playerActive} description={`${currentBreed.name} is barking`}></AudioBar>
-        { playerActive && <img className="audio-button" src={stopButton} onClick={() => stopTrack()} /> }
-        { !playerActive && <img className="audio-button" src={playButton} onClick={() => playTrack()} /> }
+        { playerActive && <img className={`audio-button ${buttonPressed ? 'audio-button--pressed' : ''}`} src={stopButton} onClick={() => stopTrack()} /> }
+        { !playerActive && <img className={`audio-button ${buttonPressed ? 'audio-button--pressed' : ''}`} src={playButton} onClick={() => playTrack()} /> }
         </>
     );
 }
