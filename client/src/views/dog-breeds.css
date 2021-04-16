@@ -1,0 +1,52 @@
+.breeds-container {
+    width: 100%;
+}
+
+.breeds {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 70%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.fa-bars {
+    padding: 11px;
+    color: #322215;
+}
+
+.fa-th-large {
+    padding: 11px;
+    color: #322215;
+}
+
+.page-button {
+    width: 125px;
+    background-color: #fff;
+    border: 1px solid gray;
+    margin-bottom: 34px;
+    margin-top: 34px;
+    text-transform: uppercase;
+}
+
+.page-button-list {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+}
+
+.page-button-icons {
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    outline: none;
+}
+
+.page-button--active {
+    background-color: #F1D48F;
+}
+
+.breeds-list-button {
+    width: 350px;
+}

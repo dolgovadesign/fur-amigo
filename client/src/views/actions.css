@@ -5,3 +5,11 @@
     align-content: center;
     justify-content: center;
 }
+
+.dog-breeds-button {
+    margin-top: 44px;
+}
+
+.dog-breeds-button img {
+    width: 77px;
+}

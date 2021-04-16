@@ -66,4 +66,10 @@ router.post('/playnext', (req, res) => {
   res.send('OK').status(200);
 });
 
+router.post('/playtrack', (req, res) => {
+  console.log(`Play track #${req.query.track} requested`);
+  sendCommand(`P${req.query.track}`);
+  res.send('OK').status(200);
+});
+
 module.exports = router;

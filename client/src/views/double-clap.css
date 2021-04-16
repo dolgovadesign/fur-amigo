@@ -8,7 +8,7 @@
     font-size: 25px;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
-    color: green;
+    color: #154319;
     margin-right: 20px;
     text-decoration: underline;
     text-transform: uppercase;
@@ -23,3 +23,8 @@
     text-decoration: underline;
     text-transform: uppercase;
 }
+
+.audio-bar {
+    margin: 0 auto;
+}
+

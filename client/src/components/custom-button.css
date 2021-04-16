@@ -2,16 +2,20 @@
     border: none;
     border-radius: 50px;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    color: green;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    margin: 5px 10px;
+    box-shadow: 2px 4px 6px #c1c1c1;
+    padding: 11px 44px;
+    margin: 15px 10px;
 }
 
 .custom-button:focus {
     outline: none;
+}
+
+.button-label {
+    color: #154319;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin: 15px;
 }

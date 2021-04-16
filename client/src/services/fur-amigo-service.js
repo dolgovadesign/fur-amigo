@@ -1,34 +1,35 @@
 import axios from 'axios';
+import { io } from 'socket.io-client';
 
-const actionUrl = 'http://localhost:4000';
+const endpoint = 'http://localhost:4000';
 
 const Service = {
     raiseEars: () => {
-        axios.post(`${actionUrl}/raiseears`);
+        axios.post(`${endpoint}/raiseears`);
     },
     lowerEars: () => {
-        axios.post(`${actionUrl}/lowerears`);
+        axios.post(`${endpoint}/lowerears`);
     },
     flapEars: () => {
-        axios.post(`${actionUrl}/flapears`);
+        axios.post(`${endpoint}/flapears`);
     },
     shakeLeftPaw: () => {
-        axios.post(`${actionUrl}/shakeleftpaw`);
+        axios.post(`${endpoint}/shakeleftpaw`);
     },
     shakeRightPaw: () => {
-        axios.post(`${actionUrl}/shakerightpaw`);
+        axios.post(`${endpoint}/shakerightpaw`);
     },
     startPlayer: () => {
-        axios.post(`${actionUrl}/playstart`);
+        axios.post(`${endpoint}/playstart`);
     },
     stopPlayer: () => {
-        axios.post(`${actionUrl}/playstop`);
+        axios.post(`${endpoint}/playstop`);
     },
     playNext: () => {
-        axios.post(`${actionUrl}/playnext`);
+        axios.post(`${endpoint}/playnext`);
     },
-    playTrack: (trackId) => {
-        axios.post(`${actionUrl}/playtrack?id=${trackId}`);
+    playTrack: (track) => {
+        axios.post(`${endpoint}/playtrack?track=${track}`);
     },
     raiseVolume: () => {
 
@@ -37,8 +38,17 @@ const Service = {
 
     },
     reset: () => {
-        axios.post(`${actionUrl}/reset`);
+        axios.post(`${endpoint}/reset`);
     },
+    onMessageReceived: (callback) => {
+        const socket = io(endpoint);
+
+        socket.on('FurAmigo', message => {
+            callback(message.trim());
+        });
+    
+        return () => socket.disconnect();
+    }
 };
 
 export default Service;

@@ -4,7 +4,7 @@ import './home.css';
 import logo from '../assets/images/logo1.png';
 import button from '../assets/images/button.png';
 
-export default function Home({onNameChanged}) {
+export default function HomeView({onNameChanged}) {
     const history = useHistory();
     const [name, setName] = useState('');
 
@@ -19,7 +19,7 @@ export default function Home({onNameChanged}) {
 
     return (
         <>
-            <h1 className="title">FurAmigo v.1.1</h1>
+            <h1 className="title">FurAmigo <span className="version">v.1.1</span></h1>
             <img className="logo" src={logo} alt="Attentive FurAmigo" />
             <p className="instruction">Hello My Friend!<br />I am FurAmigo.</p>
             <p className="instruction">What is your name?</p>

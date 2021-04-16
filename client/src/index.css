@@ -12,10 +12,16 @@ code {
 }
 
 .title {
-  color: saddlebrown;
-  font-size: 3em;
-  font-family: 'Righteous', cursive;
+  color: #815428;
+  font-size: 4em;
+  font-family: 'Abril Fatface', cursive;
   font-weight: lighter;
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
+span.version {
+  font-family: 'Tenor Sans', sans-serif;
 }
 
 .logo {
@@ -23,8 +29,10 @@ code {
 }
 
 .instruction {
-  color: green;
+  color: #154319;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 1.7;
 }
 
 .instruction-command {
@@ -33,3 +41,4 @@ code {
   font-size: 1.3em;
   font-weight: bold;
 }
+
