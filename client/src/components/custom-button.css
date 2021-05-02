@@ -5,6 +5,7 @@
     box-shadow: 2px 4px 6px #c1c1c1;
     padding: 11px 44px;
     margin: 15px 10px;
+    cursor: pointer;
 }
 
 .custom-button:focus {

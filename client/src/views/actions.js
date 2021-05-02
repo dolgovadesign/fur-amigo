@@ -22,7 +22,7 @@ export default function ActionsView({name}) {
                 <CustomButton label="Reset" onClick={() => Service.reset()} />
             </div>
             <div className="dog-breeds-button">
-                <img src={button} onClick={() => history.push(`/dog-breeds`)} alt="Go To Breeds" /><div className="button-label"> Dog Breeds </div>
+                <img src={button} onClick={() => history.push(`/dog_breeds`)} alt="Go To Breeds" /><div className="button-label"> Dog Breeds </div>
             </div>
         </>
     );

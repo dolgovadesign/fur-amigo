@@ -19,6 +19,7 @@ export default function DoubleClapView({name}) {
     useEffect(() => {
         const dispose = Service.onMessageReceived(message => {
             if (message === 'Double Clap') {
+                setRetry(false);
                 setDoubleClapDetected(true);
             } else if (message.startsWith(`Playing track`)) {
                 setPlayerActive(true);

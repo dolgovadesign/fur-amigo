@@ -13,10 +13,11 @@
 
 .submit-button {
     position: relative;
-    margin: 50px auto 0;
+    margin: 27px auto 0;
     display: block;
     background: none;
     border: none;
+    cursor: pointer;
     
 }
 
@@ -44,19 +45,14 @@
 
 }
 
-::-webkit-input-placeholder {
+ input {
     text-align: center;
-    font-size: 15px;
- }
- 
- :-moz-placeholder { /* Firefox 18- */
-    text-align: center;  
- }
- 
- ::-moz-placeholder {  /* Firefox 19+ */
-    text-align: center;  
- }
- 
- :-ms-input-placeholder {  
-    text-align: center; 
- }
+  }
+  
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
+  
+  :-moz-placeholder {
+    text-align: center;
+  }

@@ -9,9 +9,10 @@
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     color: #154319;
-    margin-right: 20px;
+    margin-right: 40px;
     text-decoration: underline;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .retry-link-no {
@@ -19,9 +20,10 @@
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     color: red;
-    margin-left: 20px;
+    margin-left: 40px;
     text-decoration: underline;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .audio-bar {

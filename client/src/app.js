@@ -24,11 +24,17 @@ export default function App() {
             <Link to='/'>
               <img className="close-button__image" src={closeButton} alt="Close button" />
             </Link>
+            <Link to='/dog_breeds'>
+              <p className="back-button"><i class="fa fa-angle-double-left"></i>Back</p>
+            </Link>
             <BreedView name={name} />
           </Route>
-          <Route path='/dog-breeds'>
+          <Route path='/dog_breeds'>
             <Link to='/'>
               <img className="close-button__image" src={closeButton} alt="Close button" />
+            </Link>
+            <Link to='/actions'>
+              <p className="back-button"><i class="fa fa-angle-double-left"></i>Back</p>
             </Link>
             <DogBreedsView name={name} />
           </Route>
@@ -36,11 +42,17 @@ export default function App() {
             <Link to='/'>
               <img className="close-button__image" src={closeButton} alt="Close button" />
             </Link>
+            <Link to='/setup_1'>
+              <p className="back-button"><i class="fa fa-angle-double-left"></i>Back</p>
+            </Link>
             <ActionsView name={name} />
           </Route>
           <Route path='/setup_2'>
             <Link to='/'>
               <img className="close-button__image" src={closeButton} alt="Close button" />
+            </Link>
+            <Link to='/setup_1'>
+              <p className="back-button"><i class="fa fa-angle-double-left"></i>Back</p>
             </Link>
             <DoubleClapView name={name} />
           </Route>

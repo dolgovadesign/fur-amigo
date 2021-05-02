@@ -8,6 +8,7 @@
 
 .dog-breeds-button {
     margin-top: 44px;
+    cursor: pointer;
 }
 
 .dog-breeds-button img {

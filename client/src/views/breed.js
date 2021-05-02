@@ -10,7 +10,7 @@ import AudioBar from '../components/audio-bar';
 import DogBreeds from '../services/breeds-service';
 import Service from '../services/fur-amigo-service';
 
-export default function BreedView() {
+export default function BreedView({name}) {
     const { id } = useParams();
     const history = useHistory();
     const [buttonPressed, setButtonPressed] = useState(false);
@@ -56,6 +56,7 @@ export default function BreedView() {
 
     return (
         <>
+        <h1 className="title">Hi {name}!</h1>
         <div>
             <img className="arrow-button" src={leftButton} onClick={() => history.push(`/breed/${prevBreedId}`)} />
             <ImageButton image={currentBreed.image} />
